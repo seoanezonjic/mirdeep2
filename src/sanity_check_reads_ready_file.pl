@@ -81,7 +81,7 @@ Please make sure that all identifiers are unique and have the format described a
                 $hash_num{$2}++;
                 $tag = $1;
             }else{}
-        }elsif(/^([A|C|G|T|N|a|c|g|t|n]{17,})$/){
+        }elsif(/^([A|C|G|T|N|a|c|g|t|n]{10,})$/){
             $seq = $1;
             if($rhash{$counter}){
                 if($hash_seq{$tag}{$seq}){
@@ -101,8 +101,8 @@ Please make sure that your reads file only contains unique sequences.\n
             die "Error in line ",Nicenumber($counter),": Either the sequence\n
 
 $_\n
-contains less than 17 characters or contains characters others than [acgtunACGTUN]\n
-Please make sure that your file only comprises sequences that have at least 17 characters\n
+contains less than 10 characters or contains characters others than [acgtunACGTUN]\n
+Please make sure that your file only comprises sequences that have at least 10 characters\n
 containing letters [acgtunACGTUN]\n
 ";
         }
@@ -121,7 +121,7 @@ containing letters [acgtunACGTUN]\n
         else{
             if($rhash{$counter}){
 
-            }elsif(/^([A|C|G|T|N|a|c|g|t|n]{17,})$/){
+            }elsif(/^([A|C|G|T|N|a|c|g|t|n]{10,})$/){
                 $seq = $1;
                 if($hash_seq{$tag}{$seq}){
                     die "Error in line ",Nicenumber($counter),": The sequence\n
@@ -165,7 +165,7 @@ Please make sure that all identifiers are unique and have the format described a
                 $hash_num{$2}++;
             }else{}#print "$id\n";}
 
-        }elsif(/^([A|C|G|T|U|N|a|c|g|t|u|n]{17,})$/){
+        }elsif(/^([A|C|G|T|U|N|a|c|g|t|u|n]{10,})$/){
             if($hash_seq{$tag}{$1}){
                 die "Error in line ",Nicenumber($counter),": The sequence\n
 $1\n
@@ -181,8 +181,8 @@ Please make sure that your reads file only contains unique sequences within each
         else{
             die "Error in line ",Nicenumber($counter),": Either the sequence\n
 $_\n
-contains less than 17 characters or contains characters others than [acgtunACGTUN]\n
-Please make sure that your file only comprises sequences that have at least 17 characters\n
+contains less than 10 characters or contains characters others than [acgtunACGTUN]\n
+Please make sure that your file only comprises sequences that have at least 10 characters\n
 containing letters [acgtunACGTUN]\n
 ";
         }
